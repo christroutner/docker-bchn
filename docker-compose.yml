@@ -7,9 +7,11 @@ bitcoind:
     - "8332:8332"   # RPC mainnet port
     - "8333:8333"   # p2p mainnet port
     - "28332:28332" # ZMQ port
-  volumes:
-#    - ../blockchain-data/bch-mainnet-abc:/data
-#    - /mnt/data/bitcoin.com/blockchain-data/bchn-mainnet:/data
+  volume:
     - /mnt/bchn:/data
     - ../config:/home/bitcoin/config
   restart: always
+  #stop_signal: SIGINT
+  #stop_signal: SIGTERM #default
+  #stop_signal: SIGKILL
+  #stop_signal: SIGHUP
